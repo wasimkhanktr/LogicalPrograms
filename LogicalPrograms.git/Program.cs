@@ -10,16 +10,20 @@ namespace LogicalPrograms
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter the value of Number : ");
+            Console.WriteLine("Enter the value of Number");
             int n = Convert.ToInt32(Console.ReadLine());
-            int reverseNo = 0;
-            while (n > 0)
+            int countFactors = 0;
+            for (int i = 1; i <= n; i++)
             {
-                int d = n % 10;
-                reverseNo = reverseNo * 10 + d;
-                n = n / 10;
+                if (n % i == 0)
+                {
+                    countFactors++;
+                }
             }
-            Console.WriteLine("Reverse Number : "+ reverseNo);
+            if (countFactors == 2)
+                Console.WriteLine("Prime No");
+            else
+                Console.WriteLine("Not Prime No");
         }
     }
 }
