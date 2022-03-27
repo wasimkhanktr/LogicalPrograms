@@ -10,17 +10,23 @@ namespace LogicalPrograms
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the value of Number");
+            Console.WriteLine("Enter the Number of Unique Coupons you want to generate");
             int n = Convert.ToInt32(Console.ReadLine());
-            int[] a = new int[n];
-            a[0] = 0;
-            a[1] = 1;
-            Console.Write("0 1 ");
-            for (int i = 2; i < n; i++)
+            HashSet<int> numbers = new HashSet<int>();
+            int totalRandomNo = 0;
+            Random random = new Random();
+            while (totalRandomNo < n)
             {
-                a[i] = a[i - 1] + a[i - 2];
-                Console.Write(a[i] + " ");
+                int coupon = random.Next(1, 1000);
+                Console.WriteLine(coupon);
+                if (!numbers.Contains(coupon))
+                {
+                    totalRandomNo++;
+                    numbers.Add(coupon);
+
+                }
             }
+            Console.WriteLine("The no of times random used in generating unique coupons is " + totalRandomNo);
         }
     }
 }
